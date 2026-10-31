@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %}Northbridge University{% endblock %}</title>
+    <meta
+      name="description"
+      content="Northbridge University - modern university management system home and navigation prototype."
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}" />
+    <script src="{{ url_for('static', filename='js/app.js') }}" defer></script>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="container topbar-inner">
+        <span>Academic Excellence • Research • Innovation</span>
+        <span>Admissions Open 2026</span>
+      </div>
+    </div>
+
+    <header class="site-header">
+      <div class="container nav-wrap">
+        <a href="{{ url_for('home') }}" class="brand" aria-label="Northbridge University home">
+          <span class="brand-mark">N</span>
+          <div>
+            <strong>Northbridge</strong>
+            <small>University</small>
+          </div>
+        </a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="main-nav">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+
+        <nav class="main-nav" id="main-nav" aria-label="Main navigation">
+          <a href="{{ url_for('home') }}">Home</a>
+          <a href="{{ url_for('admissions') }}">Admissions</a>
+          <a href="{{ url_for('faculties') }}">Faculties</a>
+          <a href="{{ url_for('announcements') }}">Announcements</a>
+          <a href="{{ url_for('contact') }}">Contact</a>
+        </nav>
+
+        <div class="nav-actions">
+          <a class="btn btn-light" href="{{ url_for('student_login') }}">Student Login</a>
+          <a class="btn btn-primary" href="{{ url_for('staff_login') }}">Staff Login</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-grid">
+        <div>
+          <h4>Northbridge University</h4>
+          <p>
+            Empowering tomorrow's leaders through excellence in teaching, research and scholarship.
+          </p>
+        </div>
+        <div>
+          <h5>Quick Links</h5>
+          <ul>
+            <li><a href="{{ url_for('admissions') }}">Admissions</a></li>
+            <li><a href="{{ url_for('faculties') }}">Faculties</a></li>
+            <li><a href="{{ url_for('announcements') }}">Announcements</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Portals</h5>
+          <ul>
+            <li><a href="{{ url_for('student_login') }}">Student Portal</a></li>
+            <li><a href="{{ url_for('staff_login') }}">Staff Portal</a></li>
+            <li><a href="{{ url_for('admin_login') }}">Admin Portal</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5>Contact</h5>
+          <ul>
+            <li>+1 (800) 555-0199</li>
+            <li>info@northbridge.edu</li>
+            <li>150 University Avenue</li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <p>© <span id="year"></span> Northbridge University. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>

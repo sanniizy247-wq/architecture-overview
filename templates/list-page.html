@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}Northbridge University | {{ page_title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero small-hero">
+  <div class="container center-content">
+    <span class="eyebrow">Academic Information</span>
+    <h1>{{ page_title }}</h1>
+  </div>
+</section>
+
+<section class="container list-layout">
+  <div class="list-intro">
+    <h2>{{ type_label }}</h2>
+    <p>Stay updated with the latest announcements and institutional news from the university.</p>
+  </div>
+
+  <div class="item-list">
+    {% for item in items %}
+    <article class="list-item">
+      <span class="date-tag">{{ item.date }}</span>
+      <div>
+        <h3>{{ item.title }}</h3>
+        <p>{{ item.summary }}</p>
+      </div>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

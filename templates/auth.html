@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block title %}Northbridge University | {{ page_title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero small-hero">
+  <div class="container center-content">
+    <span class="eyebrow">{{ role }} Portal</span>
+    <h1>{{ page_title }}</h1>
+    <p>{{ portal_message }}</p>
+  </div>
+</section>
+
+<section class="container auth-layout">
+  <div class="auth-card">
+    <form class="auth-form">
+      <label>
+        Email Address
+        <input type="email" placeholder="name@northbridge.edu" />
+      </label>
+      <label>
+        Password
+        <input type="password" placeholder="Enter your password" />
+      </label>
+      <div class="form-row">
+        <label class="checkbox-wrap">
+          <input type="checkbox" />
+          <span>Remember me</span>
+        </label>
+        <a href="{{ url_for('contact') }}">Need help?</a>
+      </div>
+      <button type="button" class="btn btn-primary btn-block">Sign In</button>
+    </form>
+  </div>
+
+  <aside class="auth-panel">
+    <h3>Portal access includes</h3>
+    <ul>
+      {% for feature in feature_list %}
+      <li>{{ feature }}</li>
+      {% endfor %}
+    </ul>
+    <div class="mini-card">
+      <strong>Support Desk</strong>
+      <p>For technical or account assistance, contact the university IT help desk.</p>
+      <a href="{{ url_for('contact') }}">Contact support</a>
+    </div>
+  </aside>
+</section>
+{% endblock %}

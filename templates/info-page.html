@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block title %}Northbridge University | {{ page_title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero small-hero">
+  <div class="container center-content">
+    <span class="eyebrow">Admissions & Learning</span>
+    <h1>{{ page_title }}</h1>
+  </div>
+</section>
+
+<section class="container info-layout">
+  <div class="info-card">
+    <p class="lead">{{ intro }}</p>
+    <ol class="info-steps">
+      {% for point in points %}
+      <li>{{ point }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <aside class="info-panel">
+    <h3>Application Highlights</h3>
+    <ul>
+      <li>Early application review</li>
+      <li>Scholarship eligibility checks</li>
+      <li>International student guidance</li>
+      <li>Career counselling support</li>
+    </ul>
+  </aside>
+</section>
+{% endblock %}

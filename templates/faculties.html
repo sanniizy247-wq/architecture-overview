@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}Northbridge University | {{ page_title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero small-hero">
+  <div class="container center-content">
+    <span class="eyebrow">Academic Diversity</span>
+    <h1>{{ page_title }}</h1>
+  </div>
+</section>
+
+<section class="container faculty-layout">
+  {% for faculty in faculties %}
+  <article class="faculty-card">
+    <div class="faculty-header">
+      <h3>{{ faculty.name }}</h3>
+      <span>{{ faculty.students }} students</span>
+    </div>
+    <ul>
+      {% for department in faculty.departments %}
+      <li>{{ department }}</li>
+      {% endfor %}
+    </ul>
+  </article>
+  {% endfor %}
+</section>
+{% endblock %}
